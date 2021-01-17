@@ -14,3 +14,5 @@ class Character {
     return this.dexMod;
   }
 }
+
+module.exports = Character;
