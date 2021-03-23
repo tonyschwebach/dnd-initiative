@@ -1,0 +1,60 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 15234395,
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9095/868/150/197/637195407145862135.jpeg",
+      "name": "Alishara",
+      "gender": "Female",
+      "isReady": true,
+      "level": 5,
+      "race": "Kalashtar (UA)",
+      "classByLine": "Sorcerer / Divine Soul",
+      "userName": "Moraiya"
+    },
+    {
+      "id": 15948552,
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/13575/229/150/150/1581111423-15948552.jpeg",
+      "name": "Bijedyvna",
+      "gender": "Female",
+      "isReady": true,
+      "level": 5,
+      "race": "Tiefling",
+      "classByLine": "Rogue / Assassin",
+      "userName": "ajs_19"
+    },
+    {
+      "id": 19427965,
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/10/65/150/150/636339379413013817.png",
+      "name": "Yamis",
+      "gender": null,
+      "isReady": true,
+      "level": 5,
+      "race": "Dragonborn",
+      "classByLine": "Bard / College of Lore",
+      "userName": "schwebachbl"
+    },
+    {
+      "id": 21358234,
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/17/169/150/150/636377830312671244.jpeg",
+      "name": "Fragrance ",
+      "gender": "M",
+      "isReady": true,
+      "level": 5,
+      "race": "Genasi",
+      "classByLine": "Druid / Circle of Dreams",
+      "userName": "MakeFilmNotWar"
+    },
+    {
+      "id": 21358668,
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/8393/434/188/150/637148070675116714.jpeg",
+      "name": "Prof. McGibbles",
+      "gender": null,
+      "isReady": true,
+      "level": 5,
+      "race": "Gnome",
+      "classByLine": "Wizard / School of Evocation",
+      "userName": "Xervantes"
+    }
+  ]
+}

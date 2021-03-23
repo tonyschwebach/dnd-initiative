@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/dnd-initiative-tracker", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/dnd-initiative", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
