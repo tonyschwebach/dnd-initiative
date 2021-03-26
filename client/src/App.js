@@ -7,8 +7,8 @@ import Home from "./pages/Home/Home";
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <Router>
+      <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/characters" component={Characters} />
