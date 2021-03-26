@@ -101,3 +101,10 @@
   ],
   "pagination": { "skip": 0, "take": 5, "total": 5 }
 }
+// ,{
+  // ObjectId("605e37fa839bd312603cf1a0")
+//   "dndBeyondId": 35066234,
+//   "name": "Konon Obrynn",
+//   "dndBeyondAvatarUrl": "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
+//   "initiativeModifier": 1
+// }

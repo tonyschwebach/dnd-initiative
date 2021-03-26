@@ -1,4 +1,4 @@
-models.exports ={
+module.exports ={
   // User: require("./User"),
   // Campaign: require("./Campaign"),
   Character: require("./Character"),
