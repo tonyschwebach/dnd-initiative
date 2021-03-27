@@ -11,7 +11,17 @@ const CharacterSchema = new Schema({
     type: String,
     required: "Characters must have names.",
   },
-  dndBeyondAvatarUrl: {
+  type: {
+    type: String,
+    required: "Player or NPC?",
+  },
+  race: {
+    type: String,
+  },
+  class: {
+    type: String,
+  },
+  avatarUrl: {
     type: String,
   },
   initiativeModifier: {
