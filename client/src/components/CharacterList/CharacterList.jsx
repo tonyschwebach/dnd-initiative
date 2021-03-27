@@ -4,13 +4,13 @@ import CharacterRow from "./CharacterRow";
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
+  console.log(characters);
+
 
   useEffect(() => {
-    console.log(characters)
     API.getCharacters()
       .then((response) => {
-        console.log(response.data)
-        setCharacters(response.characters)})
+        setCharacters(response.data)})
       .catch((err) => console.log(err));
   }, []);
 
@@ -42,10 +42,8 @@ const CharacterList = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {console.log(characters)}
-                {characters &&
-                  characters.forEach((char) => <CharacterRow key={char.id} />)}
-                <CharacterRow />
+                   {characters.map((char) => <CharacterRow {...char} key={char._id}/>)}
+          
               </tbody>
             </table>
           </div>
