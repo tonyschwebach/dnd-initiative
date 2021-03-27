@@ -1,0 +1,12 @@
+@font-face {
+  src: url("../../assets/fonts/Mairon-KYre.ttf");
+  font-family: "mairon";
+}
+
+
+#characters-hero {
+  background-image: url("https://media.dnd.wizards.com/styles/news_banner_header/public/images/head-banner/bg-heroes_0.jpg");
+  height: 75%;
+
+  font-family: "mairon",'Times New Roman', Times, serif;
+}

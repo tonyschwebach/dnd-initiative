@@ -4,14 +4,10 @@ import CharactersHeader from "../../components/CharactersHeader/CharactersHeader
 
 const Characters = () => {
   return (
-    <main>
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div class="px-4 py-6 sm:px-0">
-          <div class="rounded-lg h-96">
-            <CharactersHeader />
-            <CharacterList />
-          </div>
-        </div>
+    <main className="container mx-auto mt-2">
+      <div class="rounded-lg h-96">
+        <CharactersHeader />
+        <CharacterList />
       </div>
     </main>
   );
