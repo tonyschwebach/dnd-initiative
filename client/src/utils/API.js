@@ -28,3 +28,5 @@ const API = {
 
   // Users
 };
+
+export default API;
