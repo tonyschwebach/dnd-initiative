@@ -1,6 +1,12 @@
 const db = require("../Models");
 
 module.exports = {
+  create: function (req, res) {
+    db.Character.create({ ...req.body })
+      .then((dbCharacter) => res.json(dbCharacter))
+      .catch((err) => res.status(422).json(err));
+  },
+
   findAll: function (req, res) {
     db.Character.find(req.query)
       .then((dbCharacters) => res.json(dbCharacters))
@@ -9,12 +15,6 @@ module.exports = {
 
   findById: function (req, res) {
     db.Character.findById(req.params.id)
-      .then((dbCharacter) => res.json(dbCharacter))
-      .catch((err) => res.status(422).json(err));
-  },
-
-  create: function (req, res) {
-    db.Character.create({ ...req.body })
       .then((dbCharacter) => res.json(dbCharacter))
       .catch((err) => res.status(422).json(err));
   },

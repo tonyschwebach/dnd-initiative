@@ -4,8 +4,8 @@ const characterController = require("../../Controllers/characterController");
 // Route for api/characters/
 router
   .route("/")
-  .get(characterController.findAll)
-  .post(characterController.create);
+  .post(characterController.create)
+  .get(characterController.findAll);
 
 // Route for api/characters/:id
 router
