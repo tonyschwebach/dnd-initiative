@@ -18,7 +18,7 @@ const CharacterSchema = new Schema({
   race: {
     type: String,
   },
-  class: {
+  characterClass: {
     type: String,
   },
   avatarUrl: {
