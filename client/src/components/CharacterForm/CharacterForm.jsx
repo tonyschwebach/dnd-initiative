@@ -1,6 +1,7 @@
 import API from "../../utils/API";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CharacterForm.css";
+import { set } from "mongoose";
 
 const CharacterForm = ({ closeCharacterModal }) => {
   const [name, setName] = useState("");
@@ -9,6 +10,13 @@ const CharacterForm = ({ closeCharacterModal }) => {
   const [characterClass, setCharacterClass] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
   const [initiativeModifier, setInitiativeModifier] = useState();
+
+  useEffect(() => {
+    if (type !== "Player") {
+      setRace("");
+      setCharacterClass("");
+    }
+  }, [type]);
 
   const changeInitiativeModifier = (e) => {
     const modifier = e.target.value;
