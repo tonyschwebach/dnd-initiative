@@ -23,6 +23,8 @@ const CharacterSchema = new Schema({
   },
   avatarUrl: {
     type: String,
+    default:
+      "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
   },
   initiativeModifier: {
     type: Number,

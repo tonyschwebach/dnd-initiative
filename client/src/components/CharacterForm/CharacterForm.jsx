@@ -1,3 +1,4 @@
+import API from "../../utils/API";
 import React, { useState } from "react";
 import "./CharacterForm.css";
 
@@ -8,29 +9,62 @@ const CharacterForm = ({ closeCharacterModal }) => {
   const [characterClass, setCharacterClass] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
   const [initiativeModifier, setInitiativeModifier] = useState();
-  const [expenseCategory, setExpenseCategory] = useState("");
 
   const changeInitiativeModifier = (e) => {
     const modifier = e.target.value;
-    const re = /^[0-9]+[0-9]*$/
-    re.test(modifier)
-    if (re.test(modifier) && modifier <= 20 && modifier >= -20 || modifier==="") {
+    const re = /^[0-9]+[0-9]*$/;
+    re.test(modifier);
+    if (
+      (re.test(modifier) && modifier <= 20 && modifier >= -20) ||
+      modifier === ""
+    ) {
       setInitiativeModifier(e.target.value);
     }
+  };
+
+  const saveCharacterModal = (e) => {
+    e.preventDefault();
+
+    API.createCharacter({
+      name,
+      type,
+      race,
+      characterClass,
+      avatarUrl: avatarUrl
+        ? avatarUrl
+        : "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
+      initiativeModifier,
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    closeCharacterModal();
   };
 
   return (
     // <div>
     //   <div className="md:grid md:grid-cols-3 md:gap-6">
     //     <div className="mt-5 md:mt-0 md:col-span-2">
-    <form action="#" method="POST" className="w-full mx-0 px-0">
+    <form
+      id="character-form"
+      method="POST"
+      className="w-full mx-0 px-0"
+      // onSubmit={(e) => {
+      //   e.preventDefault();
+      //   saveCharacterModal(e);
+      // }}
+      // onSubmit={(e) => {
+      //   e.preventDefault();
+      //   closeCharacterModal();
+      // }}
+      onSubmit={saveCharacterModal}
+    >
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
           <div className="grid grid-cols-3 gap-6">
             {/* name  */}
             <div className="col-span-6 sm:col-span-3">
               <label
-                for="name"
+                htmlFor="name"
                 className="block text-sm font-medium text-gray-700 hidden"
               >
                 Character Name
@@ -51,7 +85,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
             {/* type  */}
             <div className="col-span-6 sm:col-span-3 select">
               <label
-                for="type"
+                htmlFor="type"
                 className="block text-sm font-medium text-gray-700 hidden"
               >
                 Type
@@ -76,7 +110,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
             {type === "Player" && (
               <div className="col-span-6 sm:col-span-3 select">
                 <label
-                  for="race"
+                  htmlFor="race"
                   className="block text-sm font-medium text-gray-700 hidden"
                 >
                   Race
@@ -109,7 +143,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
             {type === "Player" && (
               <div className="col-span-6 sm:col-span-3 select">
                 <label
-                  for="character-Class"
+                  htmlFor="character-Class"
                   className="block text-sm font-medium text-gray-700 hidden"
                 >
                   Class
@@ -145,7 +179,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
           {/* initiative mod  */}
           <div className="col-span-6 sm:col-span-3">
             <label
-              for="initiative-modifier"
+              htmlFor="initiative-modifier"
               className="block text-sm font-medium text-gray-700 hidden"
             >
               Initiative Modifier
@@ -170,7 +204,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
           <div className="col-span-6 sm:col-span-3">
             <div className="mt-1 flex items-center">
               <label
-                for="avatar-url"
+                htmlFor="avatar-url"
                 className="block text-sm font-medium text-gray-700 hidden"
               >
                 Character Image URL
@@ -196,10 +230,8 @@ const CharacterForm = ({ closeCharacterModal }) => {
                 className=" inline-block h-12 w-12 rounded-full bg-gray-100"
               />
             </div>
-          </div>
-
-          {/* TODO: cloudinary to upload picspics  */}
-          {/* <div>
+            {/* TODO: cloudinary to upload picspics  */}
+            {/* <div>
             <label className="block text-sm font-medium text-gray-700">
               Photo
             </label>
@@ -222,8 +254,10 @@ const CharacterForm = ({ closeCharacterModal }) => {
               </button>
             </div>
           </div> */}
+          </div>
         </div>
 
+        {/* buttons  */}
         <div className="px-4 py-3 bg-gray-50 text-right sm:px-6 border-t border-gray-200">
           <button
             type="button"
@@ -234,6 +268,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
           </button>
           <button
             type="submit"
+            form="character-form"
             className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Save

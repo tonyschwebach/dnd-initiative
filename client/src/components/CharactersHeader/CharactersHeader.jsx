@@ -9,6 +9,8 @@ const CharactersHeader = () => {
     setCharacterModalOpen(false);
   };
 
+
+
   return (
     <>
       {characterModalOpen && (
