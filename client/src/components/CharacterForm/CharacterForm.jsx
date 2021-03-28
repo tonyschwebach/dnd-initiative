@@ -17,6 +17,7 @@ const CharacterForm = () => {
                 Character Name
               </label>
               <input
+                autoFocus
                 type="text"
                 name="first_name"
                 id="first_name"
