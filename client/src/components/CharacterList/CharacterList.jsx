@@ -2,17 +2,18 @@ import API from "../../utils/API";
 import React, { useState, useEffect } from "react";
 import CharacterRow from "./CharacterRow";
 
-const CharacterList = () => {
+const CharacterList = ({ characterModalOpen }) => {
   const [characters, setCharacters] = useState([]);
-  console.log(characters);
-
 
   useEffect(() => {
-    API.getCharacters()
-      .then((response) => {
-        setCharacters(response.data)})
-      .catch((err) => console.log(err));
-  }, []);
+    if (!characterModalOpen) {
+      API.getCharacters()
+        .then((response) => {
+          setCharacters(response.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [characterModalOpen]);
 
   return (
     <div className="flex flex-col">
@@ -42,8 +43,9 @@ const CharacterList = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                   {characters.map((char) => <CharacterRow {...char} key={char._id}/>)}
-          
+                {characters.map((char) => (
+                  <CharacterRow {...char} key={char._id} />
+                ))}
               </tbody>
             </table>
           </div>

@@ -1,7 +1,6 @@
 import API from "../../utils/API";
 import React, { useEffect, useState } from "react";
 import "./CharacterForm.css";
-import { set } from "mongoose";
 
 const CharacterForm = ({ closeCharacterModal }) => {
   const [name, setName] = useState("");
@@ -9,7 +8,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
   const [race, setRace] = useState("");
   const [characterClass, setCharacterClass] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
-  const [initiativeModifier, setInitiativeModifier] = useState();
+  const [initiativeModifier, setInitiativeModifier] = useState("");
 
   useEffect(() => {
     if (type !== "Player") {
@@ -18,6 +17,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
     }
   }, [type]);
 
+  // control initiative modifier to a whole number between -20 and +20
   const changeInitiativeModifier = (e) => {
     const modifier = e.target.value;
     const re = /^[0-9]+[0-9]*$/;
@@ -26,7 +26,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
       (re.test(modifier) && modifier <= 20 && modifier >= -20) ||
       modifier === ""
     ) {
-      setInitiativeModifier(e.target.value);
+      setInitiativeModifier(modifier);
     }
   };
 
@@ -38,6 +38,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
       type,
       race,
       characterClass,
+      // if no avatar Url, set to dnd silhouette 
       avatarUrl: avatarUrl
         ? avatarUrl
         : "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
@@ -54,16 +55,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
     //     <div className="mt-5 md:mt-0 md:col-span-2">
     <form
       id="character-form"
-      method="POST"
       className="w-full mx-0 px-0"
-      // onSubmit={(e) => {
-      //   e.preventDefault();
-      //   saveCharacterModal(e);
-      // }}
-      // onSubmit={(e) => {
-      //   e.preventDefault();
-      //   closeCharacterModal();
-      // }}
       onSubmit={saveCharacterModal}
     >
       <div className="shadow sm:rounded-md sm:overflow-hidden">
@@ -187,19 +179,18 @@ const CharacterForm = ({ closeCharacterModal }) => {
           {/* initiative mod  */}
           <div className="col-span-6 sm:col-span-3">
             <label
-              htmlFor="initiative-modifier"
+              htmlFor="initiativeModifier"
               className="block text-sm font-medium text-gray-700 hidden"
             >
               Initiative Modifier
             </label>
             <input
-              autoFocus
               type="number"
               max="20"
               min="-20"
               step="1"
-              name="initiative-modifier"
-              id="initiative-modifier"
+              name="initiativeModifier"
+              id="initiativeModifier"
               required
               placeholder="Initiative Modifier"
               value={initiativeModifier}
@@ -218,7 +209,6 @@ const CharacterForm = ({ closeCharacterModal }) => {
                 Character Image URL
               </label>
               <input
-                autoFocus
                 type="text"
                 name="avatar-url"
                 id="avatar-url"

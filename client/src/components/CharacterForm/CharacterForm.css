@@ -2,3 +2,9 @@
 .select select:invalid {
   color:#6B7280;
 }
+
+option {
+  color: black;
+}
+
+
