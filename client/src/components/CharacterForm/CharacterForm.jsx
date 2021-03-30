@@ -2,7 +2,7 @@ import API from "../../utils/API";
 import React, { useEffect, useState } from "react";
 import "./CharacterForm.css";
 
-const CharacterForm = ({ closeCharacterModal }) => {
+const CharacterForm = ({ closeNewCharacterModal }) => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [race, setRace] = useState("");
@@ -30,7 +30,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
     }
   };
 
-  const saveCharacterModal = (e) => {
+  const saveNewCharacterModal = (e) => {
     e.preventDefault();
 
     API.createCharacter({
@@ -46,7 +46,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
     })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    closeCharacterModal();
+    closeNewCharacterModal();
   };
 
   return (
@@ -56,7 +56,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
     <form
       id="character-form"
       className="w-full mx-0 px-0"
-      onSubmit={saveCharacterModal}
+      onSubmit={saveNewCharacterModal}
     >
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -259,7 +259,7 @@ const CharacterForm = ({ closeCharacterModal }) => {
         <div className="px-4 py-3 bg-gray-50 text-right sm:px-6 border-t border-gray-200">
           <button
             type="button"
-            onClick={closeCharacterModal}
+            onClick={closeNewCharacterModal}
             className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Cancel

@@ -2,7 +2,7 @@ import CharacterForm from "../CharacterForm/CharacterForm";
 import React from "react";
 import { Transition } from "@headlessui/react";
 
-const CharacterModal = ({ characterModalOpen, closeCharacterModal }) => {
+const NewCharacterModal = ({ NewCharacterModalOpen, closeNewCharacterModal }) => {
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"
@@ -23,7 +23,7 @@ const CharacterModal = ({ characterModalOpen, closeCharacterModal }) => {
     --> */}
 
         <Transition
-          show={characterModalOpen}
+          show={NewCharacterModalOpen}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
           enterTo=" opacity-100"
@@ -59,7 +59,7 @@ const CharacterModal = ({ characterModalOpen, closeCharacterModal }) => {
         To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
     --> */}
         {/* <Transition
-          show={characterModalOpen}
+          show={NewCharacterModalOpen}
           enter="ease-out duration-300"
           enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           enterTo="opacity-100 translate-y-0 sm:scale-100"
@@ -83,7 +83,7 @@ const CharacterModal = ({ characterModalOpen, closeCharacterModal }) => {
                 </h3>
               </div>
             </div>
-            <CharacterForm closeCharacterModal={closeCharacterModal} submitCharacterForm={"TODO"}/>
+            <CharacterForm closeNewCharacterModal={closeNewCharacterModal} submitCharacterForm={"TODO"}/>
           </div>
         </div>
         {/* )} */}
@@ -93,4 +93,4 @@ const CharacterModal = ({ characterModalOpen, closeCharacterModal }) => {
   );
 };
 
-export default CharacterModal;
+export default NewCharacterModal;
