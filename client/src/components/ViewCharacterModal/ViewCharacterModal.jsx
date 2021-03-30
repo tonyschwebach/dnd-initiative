@@ -7,7 +7,6 @@ const ViewCharacterModal = ({ ViewCharacterModalOpen, handleClose, id }) => {
   const [characterData, setCharacterData] = useState({});
 
   useEffect(() => {
-    console.log(id);
     API.getCharacter(id)
       .then((response) => setCharacterData(response.data))
       .catch((err) => console.log(err));

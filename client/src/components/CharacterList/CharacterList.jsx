@@ -38,14 +38,14 @@ const CharacterList = () => {
 
   // makes API call to update characters state when character is added or updated
   useEffect(() => {
-    if (!NewCharacterModalOpen) {
+    if (!NewCharacterModalOpen && !ViewCharacterModalOpen && !EditCharacterModalOpen && !DeleteCharacterModalOpen) {
       API.getCharacters()
         .then((response) => {
           setCharacters(response.data);
         })
         .catch((err) => console.log(err));
     }
-  }, [NewCharacterModalOpen]);
+  }, [NewCharacterModalOpen,ViewCharacterModalOpen, EditCharacterModalOpen, DeleteCharacterModalOpen]);
 
   return (
     <>
