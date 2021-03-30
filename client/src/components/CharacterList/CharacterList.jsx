@@ -41,12 +41,10 @@ const CharacterList = () => {
   const openDeleteCharacterModal = (id) => {
     setDeleteCharacterModalOpen(true);
     setCurrentCharacterId(id);
-    console.log(DeleteCharacterModalOpen);
   };
 
   // makes API call to update characters state when character is added or updated
   useEffect(() => {
-    console.log(DeleteCharacterModalOpen);
     if (
       !NewCharacterModalOpen &&
       !ViewCharacterModalOpen &&

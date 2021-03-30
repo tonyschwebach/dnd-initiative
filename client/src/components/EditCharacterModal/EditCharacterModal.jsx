@@ -11,9 +11,9 @@ const EditCharacterModal = ({ EditCharacterModalOpen, handleClose, id }) => {
   const editCharacter = (e, charData) => {
     e.preventDefault();
     API.editCharacter(id, charData)
-      .then((res) => console.log(res))
+      .then((res) =>   handleClose())
       .catch((err) => console.log(err));
-    handleClose();
+ 
   };
 
   useEffect(() => {

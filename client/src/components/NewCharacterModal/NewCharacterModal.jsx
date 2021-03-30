@@ -8,9 +8,8 @@ const NewCharacterModal = ({ NewCharacterModalOpen, handleClose }) => {
   const saveNewCharacter = (e, charData) => {
     e.preventDefault();
     API.createCharacter(charData)
-      .then((res) => console.log(res))
+      .then((res) => handleClose())
       .catch((err) => console.log(err));
-    handleClose();
   };
 
   return (
@@ -42,11 +41,11 @@ const NewCharacterModal = ({ NewCharacterModalOpen, handleClose }) => {
           leaveTo=" opacity-0"
         >
           {/* {(ref) => ( */}
-            <div
-              // ref={ref}
-              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-              aria-hidden="true"
-            ></div>
+          <div
+            // ref={ref}
+            className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            aria-hidden="true"
+          ></div>
           {/* )} */}
         </Transition>
 

@@ -139,15 +139,19 @@ const CharacterForm = ({
                   <option disabled="disabled" value="" className="hidden">
                     Race
                   </option>
+                  <option>Aarakocra</option>
                   <option>Dwarf</option>
                   <option>Elf</option>
                   <option>Halfling</option>
                   <option>Human</option>
                   <option>Dragonborn</option>
+                  <option>Genasi</option>
                   <option>Gnome</option>
                   <option>Half-Elf</option>
                   <option>Half-Orc</option>
+                  <option>Kalashtar</option>
                   <option>Tiefling</option>
+                  <option>Warforged</option>
                 </select>
               </div>
             )}
