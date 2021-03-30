@@ -7,24 +7,12 @@ const CharacterRow = ({
   characterClass,
   type,
   _id: id,
-  openNewCharacterModal,
-  closeNewCharacterModal,
 }) => {
-  const viewCharacter = (id) => {
-    console.log(id);
-    openNewCharacterModal();
-  };
-
-  const editCharacter = (id) => {
-    console.log(id);
-    openNewCharacterModal();
-  };
-
   return (
     <tr>
       <td
         className="px-6 py-4 whitespace-nowrap cursor-pointer"
-        onClick={()=>viewCharacter(id)}
+        onClick={() => console.log("view" + id)}
       >
         <div className="flex items-center">
           <div className="flex-shrink-0 h-10 w-10">
@@ -43,7 +31,7 @@ const CharacterRow = ({
       </td>
 
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-        <i className="cursor-pointer" onClick={()=>editCharacter(id)}>
+        <i className="cursor-pointer" onClick={() => console.log("edit" + id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 40 20"
@@ -54,7 +42,10 @@ const CharacterRow = ({
           </svg>
         </i>
 
-        <i className="cursor-pointer" onClick={() => console.log(id)}>
+        <i
+          className="cursor-pointer"
+          onClick={() => console.log("delete" + id)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 40 20"

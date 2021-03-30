@@ -1,8 +1,30 @@
+import API from "../../utils/API"
 import CharacterForm from "../CharacterForm/CharacterForm";
 import React from "react";
 import { Transition } from "@headlessui/react";
 
 const NewCharacterModal = ({ NewCharacterModalOpen, closeNewCharacterModal }) => {
+  // function to handle child form submit
+  const saveNewCharacter = (e) => {
+    e.preventDefault();
+    console.log("saved")
+    // API.createCharacter({
+    //   name,
+    //   type,
+    //   race,
+    //   characterClass,
+    //   // if no avatar Url, set to dnd silhouette
+    //   avatarUrl: avatarUrl
+    //     ? avatarUrl
+    //     : "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
+    //   initiativeModifier,
+    // })
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
+    closeNewCharacterModal();
+  };
+
+
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"
@@ -83,7 +105,7 @@ const NewCharacterModal = ({ NewCharacterModalOpen, closeNewCharacterModal }) =>
                 </h3>
               </div>
             </div>
-            <CharacterForm closeNewCharacterModal={closeNewCharacterModal} submitCharacterForm={"TODO"}/>
+            <CharacterForm closeNewCharacterModal={closeNewCharacterModal} handleSubmit={saveNewCharacter}/>
           </div>
         </div>
         {/* )} */}

@@ -2,7 +2,7 @@ import API from "../../utils/API";
 import React, { useEffect, useState } from "react";
 import "./CharacterForm.css";
 
-const CharacterForm = ({ closeNewCharacterModal }) => {
+const CharacterForm = ({ closeNewCharacterModal,handleSubmit }) => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [race, setRace] = useState("");
@@ -30,24 +30,7 @@ const CharacterForm = ({ closeNewCharacterModal }) => {
     }
   };
 
-  const saveNewCharacterModal = (e) => {
-    e.preventDefault();
 
-    API.createCharacter({
-      name,
-      type,
-      race,
-      characterClass,
-      // if no avatar Url, set to dnd silhouette 
-      avatarUrl: avatarUrl
-        ? avatarUrl
-        : "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
-      initiativeModifier,
-    })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    closeNewCharacterModal();
-  };
 
   return (
     // <div>
@@ -56,7 +39,7 @@ const CharacterForm = ({ closeNewCharacterModal }) => {
     <form
       id="character-form"
       className="w-full mx-0 px-0"
-      onSubmit={saveNewCharacterModal}
+      onSubmit={handleSubmit}
     >
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
