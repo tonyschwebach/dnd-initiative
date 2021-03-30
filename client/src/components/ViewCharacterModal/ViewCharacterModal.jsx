@@ -17,6 +17,7 @@ const ViewCharacterModal = ({
       .catch((err) => console.log(err));
   }, []);
 
+  // switches to edit form instead of view only form
   const handleEditOption = () => {
     handleClose();
     openEditCharacterModal(id);
@@ -50,13 +51,13 @@ const ViewCharacterModal = ({
           leaveFrom=" opacity-100 "
           leaveTo=" opacity-0"
         >
-          {(ref) => (
+          {/* {(ref) => ( */}
             <div
-              ref={ref}
+              // ref={ref}
               className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
               aria-hidden="true"
             ></div>
-          )}
+          {/* )} */}
         </Transition>
 
         {/* <!-- This element is to trick the browser into centering the modal contents. --> */}
@@ -78,7 +79,7 @@ const ViewCharacterModal = ({
       To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
   --> */}
         {/* <Transition
-        show={EditCharacterModalOpen}
+        show={ViewCharacterModalOpen}
         enter="ease-out duration-300"
         enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         enterTo="opacity-100 translate-y-0 sm:scale-100"

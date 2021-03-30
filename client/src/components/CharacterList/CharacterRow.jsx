@@ -9,7 +9,7 @@ const CharacterRow = ({
   _id: id,
   openViewCharacterModal,
   openEditCharacterModal,
-  // openDeleteCharacterModal
+  openDeleteCharacterModal
 }) => {
   return (
     <tr>
@@ -47,7 +47,7 @@ const CharacterRow = ({
 
         <i
           className="cursor-pointer"
-          onClick={() => console.log("delete" + id)}
+          onClick={()=>openDeleteCharacterModal(id)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

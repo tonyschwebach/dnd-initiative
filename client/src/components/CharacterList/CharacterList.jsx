@@ -4,6 +4,7 @@ import CharacterRow from "./CharacterRow";
 import NewCharacterModal from "../NewCharacterModal/NewCharacterModal";
 import ViewCharacterModal from "../ViewCharacterModal/ViewCharacterModal";
 import EditCharacterModal from "../EditCharacterModal/EditCharacterModal";
+import DeleteCharacterModal from "../DeleteCharacterModal/DeleteCharacterModal";
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
@@ -20,32 +21,50 @@ const CharacterList = () => {
     setNewCharacterModalOpen(false);
     setViewCharacterModalOpen(false);
     setEditCharacterModalOpen(false);
+    setDeleteCharacterModalOpen(false);
   };
 
-  const openNewCharacterModal = () => setNewCharacterModalOpen(true);
+  const openNewCharacterModal = () => {
+    setNewCharacterModalOpen(true);
+  };
+
   const openViewCharacterModal = (id) => {
     setViewCharacterModalOpen(true);
     setCurrentCharacterId(id);
   };
+
   const openEditCharacterModal = (id) => {
     setEditCharacterModalOpen(true);
     setCurrentCharacterId(id);
   };
+
   const openDeleteCharacterModal = (id) => {
     setDeleteCharacterModalOpen(true);
     setCurrentCharacterId(id);
+    console.log(DeleteCharacterModalOpen);
   };
 
   // makes API call to update characters state when character is added or updated
   useEffect(() => {
-    if (!NewCharacterModalOpen && !ViewCharacterModalOpen && !EditCharacterModalOpen && !DeleteCharacterModalOpen) {
+    console.log(DeleteCharacterModalOpen);
+    if (
+      !NewCharacterModalOpen &&
+      !ViewCharacterModalOpen &&
+      !EditCharacterModalOpen &&
+      !DeleteCharacterModalOpen
+    ) {
       API.getCharacters()
         .then((response) => {
           setCharacters(response.data);
         })
         .catch((err) => console.log(err));
     }
-  }, [NewCharacterModalOpen,ViewCharacterModalOpen, EditCharacterModalOpen, DeleteCharacterModalOpen]);
+  }, [
+    NewCharacterModalOpen,
+    ViewCharacterModalOpen,
+    EditCharacterModalOpen,
+    DeleteCharacterModalOpen,
+  ]);
 
   return (
     <>
@@ -73,7 +92,14 @@ const CharacterList = () => {
           id={currentCharacterId}
         />
       )}
-      {/* TODO: delete character modal  */}
+      {/* conditionally render delete character modal  */}
+      {DeleteCharacterModalOpen && (
+        <DeleteCharacterModal
+          handleClose={closeCharacterModals}
+          DeleteCharacterModalOpen={DeleteCharacterModalOpen}
+          id={currentCharacterId}
+        />
+      )}
       <button
         type="button"
         onClick={openNewCharacterModal}

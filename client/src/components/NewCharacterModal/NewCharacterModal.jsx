@@ -41,13 +41,13 @@ const NewCharacterModal = ({ NewCharacterModalOpen, handleClose }) => {
           leaveFrom=" opacity-100 "
           leaveTo=" opacity-0"
         >
-          {(ref) => (
+          {/* {(ref) => ( */}
             <div
-              ref={ref}
+              // ref={ref}
               className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
               aria-hidden="true"
             ></div>
-          )}
+          {/* )} */}
         </Transition>
 
         {/* <!-- This element is to trick the browser into centering the modal contents. --> */}
