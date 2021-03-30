@@ -33,6 +33,22 @@ const CharacterForm = ({
     }
   }, [type]);
 
+  const submitForm = (e) => {
+    const formObject = {
+      name,
+      type,
+      race,
+      characterClass,
+      // if no avatar Url, set to dnd silhouette
+      avatarUrl: avatarUrl
+        ? avatarUrl
+        : "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
+      initiativeModifier,
+    };
+
+    handleSubmit(e, formObject);
+  };
+
   // control initiative modifier to a whole number between -20 and +20
   const changeInitiativeModifier = (e) => {
     const modifier = e.target.value;
@@ -50,19 +66,7 @@ const CharacterForm = ({
     <form
       id="character-form"
       className="w-full mx-0 px-0"
-      onSubmit={(e) =>
-        handleSubmit(e, {
-          name,
-          type,
-          race,
-          characterClass,
-          // if no avatar Url, set to dnd silhouette
-          avatarUrl: avatarUrl
-            ? avatarUrl
-            : "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
-          initiativeModifier,
-        })
-      }
+      onSubmit={(e) => submitForm(e)}
     >
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -276,13 +280,16 @@ const CharacterForm = ({
           >
             Cancel
           </button>
-          <button
-            type="submit"
-            form="character-form"
-            className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:ml-3 sm:w-auto sm:text-sm"
-          >
-            Save
-          </button>
+          {/* conditionally render save button  */}
+          {formType !== "view" && (
+            <button
+              type="submit"
+              form="character-form"
+              className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:ml-3 sm:w-auto sm:text-sm"
+            >
+              Save
+            </button>
+          )}
         </div>
       </div>
     </form>

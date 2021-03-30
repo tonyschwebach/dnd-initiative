@@ -8,8 +8,10 @@ const EditCharacterModal = ({ EditCharacterModalOpen, handleClose, id }) => {
   const [characterData, setCharacterData] = useState({});
 
   // TODO: handle edit form submit
-  const editCharacter = (e, id, charData) => {
+  const editCharacter = (e, charData) => {
     e.preventDefault();
+    console.log(id);
+    console.log(charData);
     API.editCharacter(id, charData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
@@ -17,7 +19,6 @@ const EditCharacterModal = ({ EditCharacterModalOpen, handleClose, id }) => {
   };
 
   useEffect(() => {
-    console.log(id);
     API.getCharacter(id)
       .then((response) => setCharacterData(response.data))
       .catch((err) => console.log(err));
