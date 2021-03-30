@@ -7,6 +7,9 @@ const CharacterRow = ({
   characterClass,
   type,
   _id: id,
+  openViewCharacterModal,
+  openEditCharacterModal,
+  // openDeleteCharacterModal
 }) => {
   return (
     <tr>
@@ -31,7 +34,7 @@ const CharacterRow = ({
       </td>
 
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-        <i className="cursor-pointer" onClick={() => console.log("edit" + id)}>
+        <i className="cursor-pointer" onClick={()=>openEditCharacterModal(id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 40 20"

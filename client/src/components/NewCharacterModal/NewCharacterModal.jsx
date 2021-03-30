@@ -1,29 +1,17 @@
-import API from "../../utils/API"
+import API from "../../utils/API";
 import CharacterForm from "../CharacterForm/CharacterForm";
 import React from "react";
 import { Transition } from "@headlessui/react";
 
-const NewCharacterModal = ({ NewCharacterModalOpen, closeNewCharacterModal }) => {
+const NewCharacterModal = ({ NewCharacterModalOpen, handleClose }) => {
   // function to handle child form submit
-  const saveNewCharacter = (e) => {
+  const saveNewCharacter = (e, charData) => {
     e.preventDefault();
-    console.log("saved")
-    // API.createCharacter({
-    //   name,
-    //   type,
-    //   race,
-    //   characterClass,
-    //   // if no avatar Url, set to dnd silhouette
-    //   avatarUrl: avatarUrl
-    //     ? avatarUrl
-    //     : "https://www.dndbeyond.com/content/skins/waterdeep/images/characters/default-avatar-builder.png",
-    //   initiativeModifier,
-    // })
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err));
-    closeNewCharacterModal();
+    API.createCharacter(charData)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    handleClose();
   };
-
 
   return (
     <div
@@ -105,7 +93,11 @@ const NewCharacterModal = ({ NewCharacterModalOpen, closeNewCharacterModal }) =>
                 </h3>
               </div>
             </div>
-            <CharacterForm closeNewCharacterModal={closeNewCharacterModal} handleSubmit={saveNewCharacter}/>
+            <CharacterForm
+              handleClose={handleClose}
+              handleSubmit={saveNewCharacter}
+              formType="new"
+            />
           </div>
         </div>
         {/* )} */}

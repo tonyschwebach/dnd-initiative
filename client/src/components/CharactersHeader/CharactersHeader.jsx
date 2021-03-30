@@ -9,8 +9,6 @@ const CharactersHeader = () => {
           <h1 className="text-7xl text-gray-50 sm:truncate hero-title">
             Characters
           </h1>
-
-         
         </div>
       </header>
     </>

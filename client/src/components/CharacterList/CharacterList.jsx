@@ -1,20 +1,34 @@
 import API from "../../utils/API";
 import React, { useState, useEffect } from "react";
 import CharacterRow from "./CharacterRow";
-import NewCharacterModal from "../NewCharacterModal/NewCharacterModal"
-import ViewCharacterModal from "../ViewCharacterModal/ViewCharacterModal"
-import EditCharacterModal from "../EditCharacterModal/EditCharacterModal"
+import NewCharacterModal from "../NewCharacterModal/NewCharacterModal";
+import ViewCharacterModal from "../ViewCharacterModal/ViewCharacterModal";
+import EditCharacterModal from "../EditCharacterModal/EditCharacterModal";
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
   const [NewCharacterModalOpen, setNewCharacterModalOpen] = useState(false);
   const [ViewCharacterModalOpen, setViewCharacterModalOpen] = useState(false);
   const [EditCharacterModalOpen, setEditCharacterModalOpen] = useState(false);
+  const [DeleteCharacterModalOpen, setDeleteCharacterModalOpen] = useState(
+    false
+  );
+  const [currentCharacterId, setCurrentCharacterId] = useState("");
 
-
-  const closeNewCharacterModal = () => {
+  // close all character modals
+  const closeCharacterModals = () => {
     setNewCharacterModalOpen(false);
+    setViewCharacterModalOpen(false);
+    setEditCharacterModalOpen(false);
   };
+
+  const openNewCharacterModal = () => setNewCharacterModalOpen(true);
+  const openViewCharacterModal = () => setViewCharacterModalOpen(true);
+  const openEditCharacterModal = (id) => {
+    setEditCharacterModalOpen(true);
+    setCurrentCharacterId(id);
+  };
+  const openDeleteCharacterModal = () => setDeleteCharacterModalOpen(true);
 
   // makes API call to update characters state when character is added or updated
   useEffect(() => {
@@ -27,33 +41,48 @@ const CharacterList = () => {
     }
   }, [NewCharacterModalOpen]);
 
-
   return (
     <>
+      {/* conditionally render new character modal  */}
       {NewCharacterModalOpen && (
         <NewCharacterModal
-          closeNewCharacterModal={closeNewCharacterModal}
+          handleClose={closeCharacterModals}
           NewCharacterModalOpen={NewCharacterModalOpen}
         />
       )}
-              <button
-          type="button"
-          onClick={() => setNewCharacterModalOpen(true)}
-          className=" inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+      {/* conditionally render view character modal  */}
+      {ViewCharacterModalOpen && (
+        <ViewCharacterModal
+          handleClose={closeCharacterModals}
+          ViewCharacterModalOpen={NewCharacterModalOpen}
+        />
+      )}
+      {/* conditionally render edit character modal  */}
+      {EditCharacterModalOpen && (
+        <EditCharacterModal
+          handleClose={closeCharacterModals}
+          EditCharacterModalOpen={NewCharacterModalOpen}
+          id={currentCharacterId}
+        />
+      )}
+      <button
+        type="button"
+        onClick={openNewCharacterModal}
+        className=" inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+      >
+        {/* <!-- Heroicon name: solid/pencil --> */}
+        <svg
+          className="-ml-1 mr-2 h-5 w-5 text-gray-500"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
         >
-          {/* <!-- Heroicon name: solid/pencil --> */}
-          <svg
-            className="-ml-1 mr-2 h-5 w-5 text-gray-500"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
-          </svg>
-          Add Character
-        </button>
-      
+          <path d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
+        </svg>
+        Add Character
+      </button>
+
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -82,7 +111,13 @@ const CharacterList = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {characters.map((char) => (
-                    <CharacterRow {...char} key={char._id} />
+                    <CharacterRow
+                      {...char}
+                      key={char._id}
+                      openViewCharacterModal={openViewCharacterModal}
+                      openEditCharacterModal={openEditCharacterModal}
+                      openDeleteCharacterModal={openDeleteCharacterModal}
+                    />
                   ))}
                 </tbody>
               </table>
