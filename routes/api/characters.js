@@ -14,4 +14,9 @@ router
   .put(characterController.update)
   .delete(characterController.remove);
 
+  // Route for api/characters/upload
+router
+.route("/upload")
+.post(characterController.createMany)
+
 module.exports = router;

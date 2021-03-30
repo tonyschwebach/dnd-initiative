@@ -7,6 +7,12 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
+  createMany: function(req,res){
+    db.Character.insertMany(req.body)
+    .then((dbCharacters) => res.json(dbCharacters))
+    .catch((err) => res.status(422).json(err));
+  },
+
   findAll: function (req, res) {
     db.Character.find(req.query)
       .then((dbCharacters) => res.json(dbCharacters))

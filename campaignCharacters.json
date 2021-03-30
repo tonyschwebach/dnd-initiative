@@ -56,5 +56,47 @@
       "classByLine": "Wizard / School of Evocation",
       "userName": "Xervantes"
     }
+  ],
+  "upload": [
+    {
+      "type": "player",
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9095/868/150/197/637195407145862135.jpeg",
+      "name": "Alishara",
+      "race": "Kalashtar (UA)",
+      "characterClass": "Sorcerer",
+      "initiativeModifier": 1
+    },
+    {
+      "type": "player",
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/13575/229/150/150/1581111423-15948552.jpeg",
+      "name": "Bijedyvna",
+      "race": "Tiefling",
+      "characterClass": "Rogue",
+      "initiativeModifier": 4
+    },
+    {
+      "type": "player",
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/10/65/150/150/636339379413013817.png",
+      "name": "Yamis",
+      "race": "Dragonborn",
+      "characterClass": "Bard",
+      "initiativeModifier": 3
+    },
+    {
+      "type": "player",
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/17/169/150/150/636377830312671244.jpeg",
+      "name": "Fragrance ",
+      "race": "Genasi",
+      "characterClass": "Druid",
+      "initiativeModifier": 0
+    },
+    {
+      "type": "player",
+      "avatarUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/8393/434/188/150/637148070675116714.jpeg",
+      "name": "Prof. McGibbles",
+      "race": "Gnome",
+      "characterClass": "Wizard",
+      "initiativeModifier": 3
+    }
   ]
 }
