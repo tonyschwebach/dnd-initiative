@@ -3,7 +3,12 @@ import CharacterForm from "../CharacterForm/CharacterForm";
 import React, { useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 
-const ViewCharacterModal = ({ ViewCharacterModalOpen, handleClose, id }) => {
+const ViewCharacterModal = ({
+  ViewCharacterModalOpen,
+  handleClose,
+  id,
+  openEditCharacterModal,
+}) => {
   const [characterData, setCharacterData] = useState({});
 
   useEffect(() => {
@@ -11,6 +16,12 @@ const ViewCharacterModal = ({ ViewCharacterModalOpen, handleClose, id }) => {
       .then((response) => setCharacterData(response.data))
       .catch((err) => console.log(err));
   }, []);
+
+  const handleEditOption = () => {
+    handleClose();
+    openEditCharacterModal(id);
+  };
+
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"
@@ -89,6 +100,12 @@ const ViewCharacterModal = ({ ViewCharacterModalOpen, handleClose, id }) => {
                 >
                   View Character
                 </h3>
+                <p
+                  class="cursor-pointer text-indigo-600 hover:text-indigo-900"
+                  onClick={handleEditOption}
+                >
+                  Edit
+                </p>
               </div>
               {/* TODO: add link to edit modal  */}
             </div>

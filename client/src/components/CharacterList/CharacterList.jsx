@@ -61,6 +61,7 @@ const CharacterList = () => {
         <ViewCharacterModal
           handleClose={closeCharacterModals}
           ViewCharacterModalOpen={ViewCharacterModalOpen}
+          openEditCharacterModal={openEditCharacterModal}
           id={currentCharacterId}
         />
       )}
