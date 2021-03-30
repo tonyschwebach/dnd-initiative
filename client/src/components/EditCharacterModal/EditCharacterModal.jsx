@@ -7,6 +7,7 @@ const EditCharacterModal = ({ EditCharacterModalOpen, handleClose, id }) => {
   // function to handle child form submit
   const [characterData, setCharacterData] = useState({});
 
+  // TODO: handle edit form submit
   const editCharacter = (e, id, charData) => {
     e.preventDefault();
     API.editCharacter(id, charData)

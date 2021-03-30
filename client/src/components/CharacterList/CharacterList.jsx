@@ -23,12 +23,18 @@ const CharacterList = () => {
   };
 
   const openNewCharacterModal = () => setNewCharacterModalOpen(true);
-  const openViewCharacterModal = () => setViewCharacterModalOpen(true);
+  const openViewCharacterModal = (id) => {
+    setViewCharacterModalOpen(true);
+    setCurrentCharacterId(id);
+  };
   const openEditCharacterModal = (id) => {
     setEditCharacterModalOpen(true);
     setCurrentCharacterId(id);
   };
-  const openDeleteCharacterModal = () => setDeleteCharacterModalOpen(true);
+  const openDeleteCharacterModal = (id) => {
+    setDeleteCharacterModalOpen(true);
+    setCurrentCharacterId(id);
+  };
 
   // makes API call to update characters state when character is added or updated
   useEffect(() => {
@@ -54,17 +60,19 @@ const CharacterList = () => {
       {ViewCharacterModalOpen && (
         <ViewCharacterModal
           handleClose={closeCharacterModals}
-          ViewCharacterModalOpen={NewCharacterModalOpen}
+          ViewCharacterModalOpen={ViewCharacterModalOpen}
+          id={currentCharacterId}
         />
       )}
       {/* conditionally render edit character modal  */}
       {EditCharacterModalOpen && (
         <EditCharacterModal
           handleClose={closeCharacterModals}
-          EditCharacterModalOpen={NewCharacterModalOpen}
+          EditCharacterModalOpen={EditCharacterModalOpen}
           id={currentCharacterId}
         />
       )}
+      {/* TODO: delete character modal  */}
       <button
         type="button"
         onClick={openNewCharacterModal}

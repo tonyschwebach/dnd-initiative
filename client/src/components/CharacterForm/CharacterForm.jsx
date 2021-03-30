@@ -15,7 +15,7 @@ const CharacterForm = ({
   const [initiativeModifier, setInitiativeModifier] = useState("");
 
   useEffect(() => {
-    if (formType === "edit" || formType === "new") {
+    if (formType === "edit" || formType === "view") {
       setName(characterData.name);
       setType(characterData.type);
       setRace(characterData.race);
@@ -85,6 +85,7 @@ const CharacterForm = ({
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="mt-1 focus:ring-purple-500 focus:border-purple-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                disabled={formType === "view" ? true : false}
               />
             </div>
 
@@ -103,6 +104,7 @@ const CharacterForm = ({
                 onChange={(e) => setType(e.target.value)}
                 required
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+                disabled={formType === "view" ? true : false}
               >
                 <option disabled="disabled" value="" className="hidden">
                   Player or DM/NPC
@@ -128,6 +130,7 @@ const CharacterForm = ({
                   onChange={(e) => setRace(e.target.value)}
                   required
                   className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+                  disabled={formType === "view" ? true : false}
                 >
                   <option disabled="disabled" value="" className="hidden">
                     Race
@@ -161,6 +164,7 @@ const CharacterForm = ({
                   onChange={(e) => setCharacterClass(e.target.value)}
                   required
                   className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+                  disabled={formType === "view" ? true : false}
                 >
                   <option disabled="disabled" value="" className="hidden">
                     Class
@@ -202,6 +206,7 @@ const CharacterForm = ({
               value={initiativeModifier}
               onChange={(e) => changeInitiativeModifier(e)}
               className="mt-1 focus:ring-purple-500 focus:border-purple-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              disabled={formType === "view" ? true : false}
             />
           </div>
 
@@ -222,6 +227,7 @@ const CharacterForm = ({
                 value={avatarUrl}
                 onChange={(e) => setAvatarUrl(e.target.value)}
                 className="mr-5 mt-1 focus:ring-purple-500 focus:border-purple-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                disabled={formType === "view" ? true : false}
               />
 
               <img

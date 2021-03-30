@@ -15,7 +15,7 @@ const CharacterRow = ({
     <tr>
       <td
         className="px-6 py-4 whitespace-nowrap cursor-pointer"
-        onClick={() => console.log("view" + id)}
+        onClick={()=>openViewCharacterModal(id)}
       >
         <div className="flex items-center">
           <div className="flex-shrink-0 h-10 w-10">
