@@ -94,7 +94,7 @@ const ViewCharacterModal = ({
         >
           <div className="bg-white pt-5 ">
             <div className="sm:flex sm:items-start">
-              <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left inline-flex">
                 <h3
                   className="text-lg leading-6 font-medium text-gray-900"
                   id="modal-title"
@@ -102,13 +102,12 @@ const ViewCharacterModal = ({
                   View Character
                 </h3>
                 <p
-                  class="cursor-pointer text-indigo-600 hover:text-indigo-900"
+                  class="cursor-pointer text-indigo-600 hover:text-indigo-900 pl-4 "
                   onClick={handleEditOption}
                 >
                   Edit
                 </p>
               </div>
-              {/* TODO: add link to edit modal  */}
             </div>
             <CharacterForm
               handleClose={handleClose}

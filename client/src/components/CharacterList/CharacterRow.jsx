@@ -9,13 +9,13 @@ const CharacterRow = ({
   _id: id,
   openViewCharacterModal,
   openEditCharacterModal,
-  openDeleteCharacterModal
+  openDeleteCharacterModal,
 }) => {
   return (
     <tr>
       <td
         className="px-6 py-4 whitespace-nowrap cursor-pointer"
-        onClick={()=>openViewCharacterModal(id)}
+        onClick={() => openViewCharacterModal(id)}
       >
         <div className="flex items-center">
           <div className="flex-shrink-0 h-10 w-10">
@@ -33,25 +33,28 @@ const CharacterRow = ({
         <div className="text-sm text-gray-900">{type}</div>
       </td>
 
-      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-        <i className="cursor-pointer" onClick={()=>openEditCharacterModal(id)}>
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium ">
+        <i
+          className="cursor-pointer "
+          onClick={() => openEditCharacterModal(id)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 40 20"
+            viewBox="0 0 80 20"
             fill="currentColor"
             className="text-purple-600 hover:text-purple-900"
           >
             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
           </svg>
         </i>
-
+  
         <i
-          className="cursor-pointer"
-          onClick={()=>openDeleteCharacterModal(id)}
+          className="cursor-pointer "
+          onClick={() => openDeleteCharacterModal(id)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 40 20"
+            viewBox="0 0 80 20"
             fill="currentColor"
             className="text-purple-600 hover:text-purple-900"
           >
