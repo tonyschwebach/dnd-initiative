@@ -52,11 +52,11 @@ const ViewCharacterModal = ({
           leaveTo=" opacity-0"
         >
           {/* {(ref) => ( */}
-            <div
-              // ref={ref}
-              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-              aria-hidden="true"
-            ></div>
+          <div
+            // ref={ref}
+            className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            aria-hidden="true"
+          ></div>
           {/* )} */}
         </Transition>
 
@@ -101,12 +101,12 @@ const ViewCharacterModal = ({
                 >
                   View Character
                 </h3>
-                <p
+                <span
                   class="cursor-pointer text-indigo-600 hover:text-indigo-900 pl-4 "
                   onClick={handleEditOption}
                 >
                   Edit
-                </p>
+                </span>
               </div>
             </div>
             <CharacterForm

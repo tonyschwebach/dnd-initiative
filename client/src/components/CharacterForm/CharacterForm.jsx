@@ -72,12 +72,12 @@ const CharacterForm = ({
         <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
           <div className="grid grid-cols-3 gap-6">
             {/* name  */}
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-6 sm:col-span-3 flex-shrink-0 flex items-center">
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700 hidden"
+                className="block text-sm font-medium text-gray-700 mr-2"
               >
-                Character Name
+                Name
               </label>
               <input
                 autoFocus
@@ -94,10 +94,10 @@ const CharacterForm = ({
             </div>
 
             {/* type  */}
-            <div className="col-span-6 sm:col-span-3 select">
+            <div className="col-span-6 sm:col-span-3 select flex-shrink-0 flex items-center">
               <label
                 htmlFor="type"
-                className="block text-sm font-medium text-gray-700 hidden"
+                className="block text-sm font-medium text-gray-700 mr-2"
               >
                 Type
               </label>
@@ -120,10 +120,10 @@ const CharacterForm = ({
 
             {/* race. conditionally render if player*/}
             {type === "Player" && (
-              <div className="col-span-6 sm:col-span-3 select">
+              <div className="col-span-6 sm:col-span-3 select flex-shrink-0 flex items-center">
                 <label
                   htmlFor="race"
-                  className="block text-sm font-medium text-gray-700 hidden"
+                  className="block text-sm font-medium text-gray-700 mr-2"
                 >
                   Race
                 </label>
@@ -158,10 +158,10 @@ const CharacterForm = ({
 
             {/* class. conditionally render if player*/}
             {type === "Player" && (
-              <div className="col-span-6 sm:col-span-3 select">
+              <div className="col-span-6 sm:col-span-3 select flex-shrink-0 flex items-center">
                 <label
                   htmlFor="character-Class"
-                  className="block text-sm font-medium text-gray-700 hidden"
+                  className="block text-sm font-medium text-gray-700 mr-2"
                 >
                   Class
                 </label>
@@ -195,10 +195,10 @@ const CharacterForm = ({
           </div>
 
           {/* initiative mod  */}
-          <div className="col-span-6 sm:col-span-3">
+          <div className="col-span-6 sm:col-span-3 flex-shrink-0 flex items-center">
             <label
               htmlFor="initiativeModifier"
-              className="block text-sm font-medium text-gray-700 hidden"
+              className="block text-sm font-medium text-gray-700 mr-2 "
             >
               Initiative Modifier
             </label>
@@ -220,10 +220,10 @@ const CharacterForm = ({
 
           {/* avatar image  */}
           <div className="col-span-6 sm:col-span-3">
-            <div className="mt-1 flex items-center">
+            <div className="mt-1 flex items-center flex-shrink-0 flex items-center">
               <label
                 htmlFor="avatar-url"
-                className="block text-sm font-medium text-gray-700 hidden"
+                className="block text-sm font-medium text-gray-700 mr-2"
               >
                 Character Image URL
               </label>
