@@ -29,14 +29,14 @@ const CharacterRow = ({
           </div>
         </div>
       </td>
-      <td className="px-6 py-4 whitespace-nowrap">
+      <td className="px-6 py-4 whitespace-nowrap ">
         <div className="text-sm text-gray-900">{type}</div>
       </td>
 
-      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium ">
-        <div className="flex-shrink-0 flex items-center">
+      <td className="px-6 py-4 whitespace-nowrap text-center">
+        <div className="flex-shrink-0 flex items-center text-sm">
         <i
-          class="fas fa-pen fa-lg cursor-pointer text-purple-600 hover:text-purple-900"
+          class="fas fa-pen fa-lg cursor-pointer text-purple-600 hover:text-purple-900 "
           onClick={() => openEditCharacterModal(id)}
         >
 

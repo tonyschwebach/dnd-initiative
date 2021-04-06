@@ -4,9 +4,12 @@ import React from "react";
 
 const Characters = () => {
   return (
-    <main className="container mx-auto mt-2">
-      <div className="rounded-lg h-96">
+    <main className="container mx-auto mt-2 place-items-center">
+      <div className="rounded-lg h-96 ">
         <CharactersHeader />
+
+
+
         <CharacterList />
       </div>
     </main>
